@@ -100,5 +100,27 @@ int main(void) {
     // ternary operator
     int result = x > 0 ? x : -x;
 
+
+    // pointer safety basics
+    // 1. Always initialize variables]
+    int some_val = 0;
+    printf("%d\n",  some_val);   // undefined behavior
+    // habit -> if don't know value set it to 0
+
+    // 2. one variable per decleration
+    int* k, j;
+    // k is a pointer, j is a regular int
+
+    // 3. match scanf types
+    int w;
+    scanf_s("%f", &w); // float/int mismatch could cause memory corruption
+
+    // 4 don't assume scanf worked
+    int t;
+    if (scanf_s("%d", &t) != 1) {
+        printf("Invalid input\n");
+        t = 0;
+    }
+
     return 0;
 }
