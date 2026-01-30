@@ -4,29 +4,29 @@
 // Note this is not a complete linked list, doesn't include getting or removing values etc.
 // Just basic to practice some structs and references
 
-struct Node {
+typedef struct Node {
   int value;
   struct Node *next_node;
-};
+} Node;
 
-struct Node *create_node(int value) {
-  struct Node *n = malloc(sizeof(struct Node));
+Node *create_node(int value) {
+  Node *n = malloc(sizeof(Node));
   n->value = value;
   n->next_node = NULL;
 
   return n;
 }
 
-struct Node *insert_at_head(struct Node *old_head, int value) {
-  struct Node *new_head = create_node(value);
+Node *insert_at_head(Node *old_head, int value) {
+  Node *new_head = create_node(value);
   new_head->next_node = old_head;
   return new_head;
 }
 
-void insert_at_tail(struct Node *head, int value) {
-  struct Node *new_node = create_node(value);
+void insert_at_tail(Node *head, int value) {
+  Node *new_node = create_node(value);
 
-  struct Node *current = head;
+  Node *current = head;
   while(current->next_node != NULL) {
     current = current->next_node;
   }
@@ -34,8 +34,8 @@ void insert_at_tail(struct Node *head, int value) {
   current->next_node = new_node;
 }
 
-void print_list(struct Node *head) {
-  struct Node *current = head;
+void print_list(Node *head) {
+  Node *current = head;
   printf("[");
   while (current->next_node != NULL) {
     printf("%d, ", current->value);
@@ -46,8 +46,8 @@ void print_list(struct Node *head) {
 
 int main(void) {
 
-  struct Node *head = create_node(5);
-  struct Node *new_head = insert_at_head(head, 10);
+  Node *head = create_node(5);
+  Node *new_head = insert_at_head(head, 10);
   insert_at_tail(new_head, 20);
   insert_at_tail(new_head, 3);
   insert_at_tail(new_head, 2);
