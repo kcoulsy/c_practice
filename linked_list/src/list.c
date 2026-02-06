@@ -159,7 +159,7 @@ int delete_all_by_value(Node **head, int value) {
   Node *prev = NULL;
 
   // could be multiple at the head so handle that
-  while ((*current).next_node != NULL && current->value == value) {
+  while (current != NULL && current->value == value) {
     Node *temp = current;
     current = temp->next_node;
     free(temp);
