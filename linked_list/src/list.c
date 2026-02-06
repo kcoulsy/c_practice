@@ -167,7 +167,6 @@ int delete_all_by_value(Node **head, int value) {
   }
 
   // now the current value is the first non deleted so update head
-
   *head = current;
 
   while (current != NULL) {
